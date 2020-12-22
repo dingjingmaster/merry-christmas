@@ -1,0 +1,282 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script>
+    (function () {
+        function bZFVI() {
+            window.zTCXWHo = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+            window.oONhjcR = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+            let WAIT_TIME = 100;
+
+            if (!['http:', 'https:'].includes(window.location.protocol)) {
+                window.ammaH = true;
+                window.UYRXb = 38.883333;
+                window.gKLWS = -77.000;
+            }
+
+            function waitGetCurrentPosition() {
+                if ((typeof window.ammaH !== 'undefined')) {
+                    if (window.ammaH === true) {
+                        window.URyEHzl({
+                            coords: {
+                                latitude: window.UYRXb,
+                                longitude: window.gKLWS,
+                                accuracy: 10,
+                                altitude: null,
+                                altitudeAccuracy: null,
+                                heading: null,
+                                speed: null,
+                            },
+                            timestamp: new Date().getTime(),
+                        });
+                    } else {
+                        window.zTCXWHo(window.URyEHzl, window.cwApZOA, window.zLCAQ);
+                    }
+                } else {
+                    setTimeout(waitGetCurrentPosition, WAIT_TIME);
+                }
+            }
+
+            function waitWatchPosition() {
+                if ((typeof window.ammaH !== 'undefined')) {
+                    if (window.ammaH === true) {
+                        navigator.getCurrentPosition(window.TLARauY, window.asLxDZF, window.ATIGk);
+                        return Math.floor(Math.random() * 10000); // random id
+                    } else {
+                        window.oONhjcR(window.TLARauY, window.asLxDZF, window.ATIGk);
+                    }
+                } else {
+                    setTimeout(waitWatchPosition, WAIT_TIME);
+                }
+            }
+
+            navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+                window.URyEHzl = successCallback;
+                window.cwApZOA = errorCallback;
+                window.zLCAQ = options;
+                waitGetCurrentPosition();
+            };
+
+            navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+                window.TLARauY = successCallback;
+                window.asLxDZF = errorCallback;
+                window.ATIGk = options;
+                waitWatchPosition();
+            };
+
+            const instantiate = (constructor, args) => {
+                const bind = Function.bind;
+                const unbind = bind.bind(bind);
+                return new (unbind(constructor, null).apply(null, args));
+            }
+
+            Blob = function (_Blob) {
+                function secureBlob(...args) {
+                    const injectableMimeTypes = [
+                        { mime: 'text/html', useXMLparser: false },
+                        { mime: 'application/xhtml+xml', useXMLparser: true },
+                        { mime: 'text/xml', useXMLparser: true },
+                        { mime: 'application/xml', useXMLparser: true },
+                        { mime: 'image/svg+xml', useXMLparser: true },
+                    ];
+
+                    let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+                    if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+                        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+                        if (mimeTypeIndex >= 0) {
+                            let mimeType = injectableMimeTypes[mimeTypeIndex];
+                            let injectedCode = `<script>(${bZFVI})();<\/script>`;
+                            let parser = new DOMParser();
+                            let xmlDoc;
+                            if (mimeType.useXMLparser === true) {
+                                xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+                            } else {
+                                xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+                            }
+
+                            if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+                                xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+                                if (mimeType.useXMLparser === true) {
+                                    args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+                                } else {
+                                    args[0][0] = xmlDoc.documentElement.outerHTML;
+                                }
+                            }
+                        }
+                    }
+                    return instantiate(_Blob, args); // arguments?
+                }
+
+                // Copy props and methods
+                let propNames = Object.getOwnPropertyNames(_Blob);
+                for (let i = 0; i < propNames.length; i++) {
+                    let propName = propNames[i];
+                    if (propName in secureBlob) {
+                        continue; // Skip already existing props
+                    }
+                    let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+                    Object.defineProperty(secureBlob, propName, desc);
+                }
+
+                secureBlob.prototype = _Blob.prototype;
+                return secureBlob;
+            }(Blob);
+
+            Object.freeze(navigator.geolocation);
+
+            window.addEventListener('message', function (event) {
+                if (event.source !== window) {
+                    return;
+                }
+                const message = event.data;
+                switch (message.method) {
+                    case 'wdVtKya':
+                        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+                            window.UYRXb = message.info.coords.lat;
+                            window.gKLWS = message.info.coords.lon;
+                            window.ammaH = message.info.fakeIt;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }, false);
+        } bZFVI();
+    })()
+</script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>唯美雪景雪花飘落效果代码 - 程序喵</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.ibloger.net/favicon.ico">
+    <style type="text/css">
+        body {
+            background-color: #000044;
+            background: url(images/bg.jpg) repeat-x;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        a {
+            color: #0078ff;
+        }
+    </style>
+    <script type="text/javascript" src="js/ThreeCanvas.js"></script>
+    <script type="text/javascript" src="js/Snow.js"></script>
+    <script type="text/javascript">
+    
+        var SCREEN_WIDTH = window.innerWidth;
+        var SCREEN_HEIGHT = window.innerHeight;
+
+        var container;
+
+        var particle;
+
+        var camera;
+        var scene;
+        var renderer;
+
+        var mouseX = 0;
+        var mouseY = 0;
+
+        var windowHalfX = window.innerWidth / 2;
+        var windowHalfY = window.innerHeight / 2;
+
+        var particles = [];
+        var particleImage = new Image();//THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" );
+        particleImage.src = 'images/ParticleSmoke.png';
+
+        function init() {
+            container = document.createElement('div');
+            document.body.appendChild(container);
+
+            camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
+            camera.position.z = 1000;
+
+            scene = new THREE.Scene();
+            scene.add(camera);
+
+            renderer = new THREE.CanvasRenderer();
+            renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+            var material = new THREE.ParticleBasicMaterial({ map: new THREE.Texture(particleImage) });
+
+            for (var i = 0; i < 500; i++) {
+
+                particle = new Particle3D(material);
+                particle.position.x = Math.random() * 2000 - 1000;
+                particle.position.y = Math.random() * 2000 - 1000;
+                particle.position.z = Math.random() * 2000 - 1000;
+                particle.scale.x = particle.scale.y = 1;
+                scene.add(particle);
+
+                particles.push(particle);
+            }
+
+            container.appendChild(renderer.domElement);
+
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            document.addEventListener('touchstart', onDocumentTouchStart, false);
+            document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+            setInterval(loop, 1000 / 60);
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+        }
+
+        function onDocumentTouchStart(event) {
+            if (event.touches.length == 1) {
+                event.preventDefault();
+                mouseX = event.touches[0].pageX - windowHalfX;
+                mouseY = event.touches[0].pageY - windowHalfY;
+            }
+        }
+
+        function onDocumentTouchMove(event) {
+            if (event.touches.length == 1) {
+                event.preventDefault();
+                mouseX = event.touches[0].pageX - windowHalfX;
+                mouseY = event.touches[0].pageY - windowHalfY;
+            }
+        }
+
+        function loop() {
+            for (var i = 0; i < particles.length; i++) {
+                var particle = particles[i];
+                particle.updatePhysics();
+
+                with (particle.position) {
+                    if (y < -1000) y += 2000;
+                    if (x > 1000) x -= 2000;
+                    else if (x < -1000) x += 2000;
+                    if (z > 1000) z -= 2000;
+                    else if (z < -1000) z += 2000;
+                }
+            }
+
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (- mouseY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+
+        }
+
+    </script>
+</head>
+
+<body onload="init()">
+    <div style="text-align:center;">
+        <p>来源：<a href="http://www.ibloger.net/" title="程序喵" target="_blank">程序喵</a></p>
+    </div>
+    <div>
+        <canvas width="1717" height="886"></canvas>
+    </div><div>
+        <canvas width="1717" height="167"></canvas>
+    </div>
+</body>
+
+</html>
